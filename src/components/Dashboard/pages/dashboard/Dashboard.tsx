@@ -3,10 +3,6 @@
 
 import { metricsData } from "@/constants/cardData";
 import { MetricCard } from "../../components/cards/metricCard/MetricCard";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { DriverCard } from "../../components/cards/driverCard/DriverCard";
-import { demoDrivers } from "@/constants/driverData";
-import BookingReportChart from "../../components/charts/BookingReportChart";
 import {
   monthlyData,
   quarterlyData,
@@ -19,6 +15,8 @@ import {
   purchaseQuarterlyData,
   purchaseYearlyData,
 } from "@/constants/purchaseHistoryData";
+import CompletedTrip from "../../components/completedTrip/CompletedTrip";
+
 
 export default function Dashboard() {
   const [data, setData] = useState(monthlyData);
@@ -58,42 +56,24 @@ export default function Dashboard() {
     <div>
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {metricsData.map((metric, index) => (
-          <MetricCard key={index} {...metric} />
+          <MetricCard  color={"blue"} key={index} {...metric} />
         ))}
       </div>
-      <div className="grid grid-cols-4 gap-5 mt-8">
+      <div className="gap-5 mt-8">
         <div className=" col-span-4 lg:col-span-3 gap-5">
-          <BookingReportChart
-            data={data}
-            heading="Booking Reports"
-            onFilterChange={handleFilterChange}
-          />
-          <div className="mt-5">
+          
+          <div className="mt-5 w-full">
             <PurchaseHistoryChart
               heading="Purchase History"
               data={pdata}
               filters={["Monthly", "Quarterly", "Yearly"]}
               onFilterChange={handlePurchaseFilterChange}
             />
-            ;
+          </div>
+          <div className="mt-7 w-full">
+            <CompletedTrip></CompletedTrip>
           </div>
         </div>
-        <Card className="w-full h-fit col-span-4 lg:col-span-1">
-          <CardHeader>
-            <CardTitle className="text-xl font-bold">
-              Recent Added Drivers
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-1">
-            {demoDrivers.map((driver) => (
-              <DriverCard
-                key={driver.id}
-                name={driver.name}
-                avatarUrl={driver.avatarUrl}
-              />
-            ))}
-          </CardContent>
-        </Card>
       </div>
     </div>
   );

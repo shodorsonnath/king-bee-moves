@@ -1,3 +1,4 @@
+'use client'
 import { NavLink } from '@/lib/types/type'
 import { cn } from '@/lib/utils'
 import MainNavLink from './Navlink'

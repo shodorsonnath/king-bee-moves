@@ -23,7 +23,7 @@ import Image from "next/image";
 
 type ChartData = {
   month: string;
-  revenue: number;
+  earning: number;
 };
 
 type PurchaseHistoryChartProps = {
@@ -34,7 +34,6 @@ type PurchaseHistoryChartProps = {
 };
 
 export const PurchaseHistoryChart: React.FC<PurchaseHistoryChartProps> = ({
-  heading,
   data,
   onFilterChange,
   filters = ["Monthly", "Quarterly", "Yearly"],
@@ -51,14 +50,9 @@ export const PurchaseHistoryChart: React.FC<PurchaseHistoryChartProps> = ({
   return (
     <Card className="w-full">
       <CardHeader className="flex flex-col sm:flex-row items-center justify-between pb-8">
-        <div className="text-xl font-bold text-neutral-700">{heading}</div>
+        <div className="text-xl font-bold text-neutral-700">Earnings Summary</div>
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded bg-[#A78BFA]" />
-            <span className="text-xs font-medium text-neutral-500">
-              Revenue
-            </span>
-          </div>
+          
           <Select value={filter} onValueChange={handleFilterChange}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Filter" />
@@ -82,7 +76,7 @@ export const PurchaseHistoryChart: React.FC<PurchaseHistoryChartProps> = ({
             >
               <defs>
                 <linearGradient
-                  id="revenueGradient"
+                  id="earningGradient"
                   x1="0"
                   y1="0"
                   x2="0"
@@ -104,8 +98,8 @@ export const PurchaseHistoryChart: React.FC<PurchaseHistoryChartProps> = ({
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
-                tickFormatter={(value) => `${value / 1000}k`}
-                domain={[0, Math.max(...data.map((d) => d.revenue)) * 1.2]} // Dynamic domain
+                tickFormatter={(value) => `$${value / 1000}k`}
+                domain={[0, Math.max(...data.map((d) => d.earning)) * 1.2]} // Dynamic domain
               />
               <CartesianGrid
                 stroke="#E0E0E0"
@@ -127,11 +121,8 @@ export const PurchaseHistoryChart: React.FC<PurchaseHistoryChartProps> = ({
                             </span>
                           </div>
                           <div className="flex items-center justify-between gap-2">
-                            <span className="text-sm font-bold">
-                              Total Sales:
-                            </span>
                             <span className="text-sm ">
-                              {payload[0].value}k
+                              ${payload[0].value}
                             </span>
                           </div>
                         </div>
@@ -143,10 +134,10 @@ export const PurchaseHistoryChart: React.FC<PurchaseHistoryChartProps> = ({
               />
               <Area
                 type="monotone"
-                dataKey="revenue"
+                dataKey="earning"
                 stroke="#A78BFA"
                 strokeWidth={2}
-                fill="url(#revenueGradient)"
+                fill="url(#earningGradient)"
               />
             </AreaChart>
           </ResponsiveContainer>
