@@ -8,6 +8,9 @@ import {
 } from "@/constants/vehicleLiveData";
 import { useState } from "react";
 
+import { MetricCard } from "../../components/cards/bookingCard/BookingCard";
+import { bookingCardData } from "@/constants/bookingCard";
+
 export default function BookingList() {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -20,12 +23,21 @@ export default function BookingList() {
     startIndex + itemsPerPage
   );
   return (
-    <div className="relative mt-8 ">
+    <div className="relative">
       <div className="overflow-x-hidden-hidden overflow-x-auto">
+
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4 mb-10">
+          {bookingCardData.map((metric, index) => (
+            <MetricCard color={"blue"} key={index} {...metric} />
+          ))}
+        </div>
+
+
         <BookingListTable
           tableHeader={bookingListTableHeaders}
           tableData={paginatedData}
         />
+        
       </div>
       {/* Pagination */}
       <TablePagination

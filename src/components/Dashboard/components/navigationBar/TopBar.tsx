@@ -22,7 +22,7 @@ export default function TopBar({
   const title = getTopBarTitle(pathname)
 
   return (
-    <header className="border-b bg-background">
+    <header className="border-b bg-white">
       <div className="flex items-center justify-between px-8 py-3 w-full">
         <Button
           variant="ghost"

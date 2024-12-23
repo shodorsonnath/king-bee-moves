@@ -21,3 +21,5 @@ export const yearlyData = [
   { month: "2022", bookings: 28000, percentageChange: -5, isIncrease: false },
   { month: "2023", bookings: 35000, percentageChange: 15, isIncrease: true },
 ];
+
+
