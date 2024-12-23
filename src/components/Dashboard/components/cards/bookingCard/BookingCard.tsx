@@ -60,18 +60,11 @@ export function MetricCard({
                                 </div>
                             </div>
                             {/* graph card */}
-
                             <div>
                                 {change >= 0 ? <Image src={upgraph} alt="upgraph" className="w-40 h-20" /> : <Image src={downgraph} alt="downgraph" className="w-40 h-20" />}
-
                             </div>
-
                         </div>
-
-
                     </div>
-
-
                 </div>
             </CardContent>
         </Card>
