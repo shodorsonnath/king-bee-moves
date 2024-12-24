@@ -1,7 +1,7 @@
-import Car from "@/assets/car.png";
-import earth from "@/assets/earth.png";
-import coin from "@/assets/coin.png";
-import check from "@/assets/chech.png";
+import Car from "@/assets/dashboardCardIcon/Car.svg";
+import earth from "@/assets/dashboardCardIcon/SteeringWheel.svg";
+import coin from "@/assets/dashboardCardIcon/dollarSign.svg";
+import check from "@/assets/dashboardCardIcon/CalendarCheck.svg";
 
 
 export const metricsData = [

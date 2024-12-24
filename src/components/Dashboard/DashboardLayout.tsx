@@ -4,8 +4,11 @@ import TopBar from "@/components/Dashboard/components/navigationBar/TopBar";
 import { selectCurrentUser } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hooks";
 import React, { useEffect, useRef, useState } from "react";
-import { AiOutlineCreditCard  , AiOutlineCheckSquare ,AiOutlineProduct, AiOutlineUser  } from "react-icons/ai";
 import SideBar from "./components/navigationBar/SiderBar";
+import payment from "@/assets/NavIcons/payment.svg"
+import driver from "@/assets/NavIcons/drivers.svg"
+import booking from "@/assets/NavIcons/Check.svg"
+import dashboardicon from "@/assets/NavIcons/dashboard.svg"
 
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
@@ -31,23 +34,23 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     {
       name: "Overview",
       href: "/dashboard",
-      icon: AiOutlineProduct
+      icon: dashboardicon,
     },
     {
       name: "Booking",
       href: "/booking-list",
-      icon: AiOutlineCheckSquare  ,
+      icon: booking ,
     },
     {
       name: "Drives",
       href: "/total-driver",
-      icon: AiOutlineUser 
+      icon: driver,
     },
 
     {
       name: "Payments",
       href: "/payment",
-      icon: AiOutlineCreditCard  ,
+      icon: payment,
     },
 
   ];

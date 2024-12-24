@@ -1,13 +1,13 @@
 
-import coin from "@/assets/coin.png";
-import calender from "@/assets/calender.png";
+import coin from "@/assets/dashboardCardIcon/dollarSign.svg";
+import booked from "../assets/dashboardCardIcon/CalendarCheck.svg";
 
 
 export const bookingCardData = [
   {
     title: "Total Trip",
     value: 3867,
-    icon: calender,
+    icon: booked,
     change: +2.86,
   },
   {

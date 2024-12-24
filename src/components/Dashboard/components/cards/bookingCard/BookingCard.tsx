@@ -6,7 +6,7 @@ import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import downgraph from '../../../../../assets/downgraph.png'
 import upgraph from '../../../../../assets/upgraph.png'
 
-interface MetricCardProps {
+interface BookingCardProps {
     title: string;
     value: number;
     icon: LucideIcon | string | any;
@@ -14,12 +14,12 @@ interface MetricCardProps {
     color: "blue";
 }
 
-export function MetricCard({
+export function BookingCard({
     title,
     value,
     icon: Icon,
     change,
-}: MetricCardProps) {
+}: BookingCardProps) {
 
 
     return (
@@ -31,7 +31,7 @@ export function MetricCard({
                         {/* card icon */}
                         <div className="flex items-center gap-4 mb-3">
                             <div className={`p-2 rounded-md bg-[#ECF5FA]`}>
-                                <Image src={Icon} alt="icon" className="w-5 h-5" />
+                                <Image src={Icon} alt="icon" className="w-7 h-7" />
                             </div>
                             <p className="text-base lg:text-lg font-medium">{title}</p>
                         </div>

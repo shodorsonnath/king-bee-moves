@@ -49,7 +49,7 @@ export default function MainNavLink({
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Link href={"/"} className="p-4">
-        <div className="text-center mt-2">
+        <div className="ml-4 mt-2">
          <h1 className="text-2xl font-extrabold text-[#001F54]">Kingbeemovers</h1>
         </div>
       </Link>
@@ -69,7 +69,7 @@ export default function MainNavLink({
                 {isIconComponent(link.icon) ? (
                   <link.icon className="min-w-6 min-h-6" />
                 ) : (
-                  <Image src={link.icon} alt={link.name} />
+                  <Image src={link.icon} alt={link.name} className="w-6" />
                 )}
               </div>
               {link.name}

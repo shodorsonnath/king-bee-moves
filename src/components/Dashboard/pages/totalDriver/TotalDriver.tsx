@@ -4,75 +4,23 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ChevronDown, Filter, MailOpen, Phone, Search, X } from 'lucide-react';
 import { Dropdown, MenuProps, Space, Table } from 'antd';
+import { Driver, driversData } from '@/constants/allDriverData';
+import drive1 from '@/assets/n1.png'
+import drive2 from '@/assets/n2.png'
+import drive3 from '@/assets/dl1.png'
+import drive4 from '@/assets/dl2.png'
+import Image from 'next/image';
 
-interface Driver {
-  id: string;
-  name: string;
-  driverId: string;
-  phone: string;
-  email: string;
-  avatar: string;
-  status: string;
-  documents: {
-    nationalId: string;
-    license: string;
-  };
-}
 
-export default function DriverList() {
+export default function TotalDriver() {
   const [selectedDriver, setSelectedDriver] = useState<Driver | null>(null);
-  const [drivers, setDrivers] = useState<Driver[]>([
-    {
-      id: '1',
-      name: 'John Adams',
-      driverId: '#D-10001',
-      phone: '111-222-3333',
-      email: 'john.adams@example.com',
-      avatar: '/placeholder.svg',
-      status: 'Verified',
-      documents: {
-        nationalId: 'nid1.png',
-        license: '/placeholder.svg',
-      },
-    },
-    {
-      id: '2',
-      name: 'Emily Brown',
-      driverId: '#D-10002',
-      phone: '222-333-4444',
-      email: 'emily.brown@example.com',
-      avatar: '/placeholder.svg',
-      status: 'Pending',
-      documents: {
-        nationalId: '/placeholder.svg',
-        license: '/placeholder.svg',
-      },
-    },
-    {
-      id: '3',
-      name: 'Michael Clark',
-      driverId: '#D-10003',
-      phone: '333-444-5555',
-      email: 'michael.clark@example.com',
-      avatar: '/placeholder.svg',
-      status: 'Processing',
-      documents: {
-        nationalId: '',
-        license: '/placeholder.svg',
-      },
-    },
-  ]);
+  const [drivers, setDrivers] = useState<Driver[]>(driversData);
 
   const items: MenuProps['items'] = [
-    {
-      key: '1',
-      label: 'Verify Application',
-    },
-    {
-      key: '2',
-      label: 'Verify Drivers',
-    },
+    { key: '1', label: 'Verify Application' },
+    { key: '2', label: 'Verify Drivers' },
   ];
+
   const itemsDriver: MenuProps['items'] = [
     {
       key: '1',
@@ -133,11 +81,7 @@ export default function DriverList() {
       key: 'status',
       render: (text: string, record: Driver) => (
         <span
-          className={`px-3 py-1 block text-white rounded-md w-24 text-center ${record.status === 'Verified'
-            ? 'bg-[#001F54]'
-            : record.status === 'Pending'
-              ? 'bg-[#FF6F00]'
-              : 'bg-[#228B22]'
+          className={`px-3 py-1 block text-white rounded-md w-24 text-center ${record.status === 'Verified' ? 'bg-[#001F54]' : record.status === 'Pending' ? 'bg-[#FF6F00]' : 'bg-[#228B22]'
             }`}
         >
           {record.status}
@@ -163,13 +107,11 @@ export default function DriverList() {
     if (selectedDriver) {
       const newStatus = key === '1' ? 'Pending' : key === '2' ? 'Processing' : 'Verified';
 
-      // Update the drivers state
       const updatedDrivers = drivers.map((driver) =>
         driver.id === selectedDriver.id ? { ...driver, status: newStatus } : driver
       );
       setDrivers(updatedDrivers);
 
-      // Update the selectedDriver state
       setSelectedDriver({
         ...selectedDriver,
         status: newStatus,
@@ -281,10 +223,19 @@ export default function DriverList() {
               <div>
                 <div className="grid gap-4">
                   <div>
-                    <div className="text-base font-medium mb-2">National ID Card Photo  </div>
+                    <div className="text-base font-medium mb-3">National ID Card Photo <span className='text-gray-500'>(Front & Back)</span>  </div>
+                    <div>
+                      <Image src={drive1} alt='nationidfront'></Image>
+                      <Image src={drive2} alt='nationidback'></Image>
+                    </div>
                   </div>
                   <div>
-                    <div className="text-base text-muted-foreground mb-2">Commercial Driver&#39;s License (CDL) Photo <span className='text-gray-500'>(Front & Back)</span></div>
+                    <div className="text-base text-muted-foreground mt-2 mb-2">Commercial Driver&#39;s License (CDL) Photo <span className='text-gray-500'>(Front & Back)</span>
+                    </div>
+                    <div className='mb-2'>
+                      <Image src={drive3} alt='driving license front'></Image>
+                      <Image src={drive4} alt='driving license back'></Image>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -314,4 +265,3 @@ export default function DriverList() {
     </div>
   );
 }
-

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import auth from "@/assets/loginBAnner.jpg";
+import auth1 from "@/assets/logo/logo.svg";
 import Image from "next/image";
 import React from "react";
 
@@ -12,10 +12,13 @@ const AuthLayout = ({
 }) => {
   return (
     <div className="grid md:grid-cols-2 w-full h-screen">
-      <div className="hidden h-screen md:block">
-        <Image src={auth} alt="image" className="w-full h-full object-cover"/>
+      <div className="hidden h-full md:flex justify-center items-center -mt-10">
+        <div className="flex flex-col justify-center items-center text-center">
+          <Image src={auth1} alt="image" className="md:w-[200px] lg:w-[250px] lg:h-[120px]" />
+          <h1 className="font-extrabold md:text-5xl lg:text-7xl italic text-[#001F54]">KINKBEEMOVES</h1>
+        </div>
       </div>
-      <div className="flex justify-center items-center h-full w-full ">
+      <div className="flex justify-center items-center h-full w-full">
         {children}
       </div>
     </div>

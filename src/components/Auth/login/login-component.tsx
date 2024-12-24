@@ -59,9 +59,9 @@ const LoginComponent = () => {
     <div>
       <AuthLayout>
         <div className=" w-full max-w-3xl px-5 mt-24 md:mt-0">
-          <p className="text-base font-normal mb-2">We missed you</p>
-          <h5 className=" text-3xl font-bold mb-10">
-            <span className="text-primary">Welcome</span> back!
+          <p className="text-base font-normal mb-2 text-">We missed you</p>
+          <h5 className=" text-4xl font-extrabold mb-10">
+            <span className="text-[#001F54]">Welcome</span> back!
           </h5>
           <MyFormWrapper
             className={"flex flex-col gap-6 w-full"}
@@ -87,20 +87,20 @@ const LoginComponent = () => {
                 value={"12345678"}
               />
             </div>
-            <div className="flex items-center justify-end gap-2 text-xs font-medium">
+            <div className="flex items-center justify-end gap-2 text-base font-medium">
               <p className="text-[#5F7992]">Forgot Password?</p>
-              <p className="text-[#030B12]">Reset</p>
+              <p className="text-[#001F54]">Reset</p>
             </div>
             <Button
-              className="w-fit mx-auto py-3 rounded-lg bg-primary text-white text-base font-normal leading-6 mb-5"
+              className="w-fit mx-auto py-3 rounded-lg bg-[#001F54] text-white text-base font-normal leading-6 mb-5"
               type="submit"
             >
               Login
             </Button>
-            <div className="flex items-center justify-center gap-2 text-xs font-medium mb-5">
+            <div className="flex items-center justify-center gap-2 text-base font-medium mb-5">
               <p className="text-[#5F7992]">Don’t have an account?</p>
               <Link href={"/signup"}>
-                <p className="text-primary">Signup now</p>
+                <p className="text-[#001F54]">Signup now</p>
               </Link>
             </div>
           </MyFormWrapper>

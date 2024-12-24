@@ -1,4 +1,5 @@
-import VehiclesTrackList from "@/components/Dashboard/pages/vehicleTrackList/VehiclesTrackList";
+import PaymentList from "@/components/Dashboard/pages/Payment/PaymentList";
+
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="dashboard-containers relative min-h-screen">
-      <VehiclesTrackList />
+      <PaymentList />
     </div>
   );
 }
