@@ -23,15 +23,15 @@ export default function Dashboard() {
   const [filter, setFilter] = useState("Monthly"); // Default filter
   const [pdata, setPdata] = useState(purchaseMonthlyData);
 
-  const handleFilterChange = (filter: string) => {
-    if (filter === "Monthly") {
-      setData(monthlyData);
-    } else if (filter === "Quarterly") {
-      setData(quarterlyData);
-    } else if (filter === "Yearly") {
-      setData(yearlyData);
-    }
-  };
+  // const handleFilterChange = (filter: string) => {
+  //   if (filter === "Monthly") {
+  //     setData(monthlyData);
+  //   } else if (filter === "Quarterly") {
+  //     setData(quarterlyData);
+  //   } else if (filter === "Yearly") {
+  //     setData(yearlyData);
+  //   }
+  // };
 
   const handlePurchaseFilterChange = (newFilter: string) => {
     setFilter(newFilter);

@@ -159,7 +159,7 @@ export default function TotalDriver() {
             } ${'fixed lg:relative bottom-0 w-full right-1 lg:w-[400px]'
             }`}
         >
-          <div className="space-y-6 relative -mt-5">
+          <div className="space-y-6 bg-white relative -mt-5">
             {/* Close Icon */}
             <button
               className="absolute top-4 right-4 text-muted-foreground hover:text-red-500"
