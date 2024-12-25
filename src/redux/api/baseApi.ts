@@ -43,6 +43,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
         },
       });
 
+      
       const data = await res.json();
 
       if (data?.data?.accessToken) {

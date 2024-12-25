@@ -155,8 +155,8 @@ export default function TotalDriver() {
 
       {selectedDriver && (
         <div
-          className={`p-6 bg-white transition-all ${selectedDriver ? 'block' : 'hidden'
-            } ${'fixed lg:relative bottom-0 w-full right-1 lg:w-[400px]'
+          className={`p-6 bg-white transition-all z-50 ${selectedDriver ? 'block' : 'hidden'
+            } ${'fixed lg:relative z-1 bottom-0 w-full right-1 lg:w-[400px]'
             }`}
         >
           <div className="space-y-6 bg-white relative -mt-5">
@@ -224,7 +224,7 @@ export default function TotalDriver() {
                 <div className="grid gap-4">
                   <div>
                     <div className="text-base font-medium mb-3">National ID Card Photo <span className='text-gray-500'>(Front & Back)</span>  </div>
-                    <div>
+                    <div className='flex lg:flex-col flex-row w-36 md:w-44'>
                       <Image src={drive1} alt='nationidfront'></Image>
                       <Image src={drive2} alt='nationidback'></Image>
                     </div>
@@ -232,7 +232,7 @@ export default function TotalDriver() {
                   <div>
                     <div className="text-base text-muted-foreground mt-2 mb-2">Commercial Driver&#39;s License (CDL) Photo <span className='text-gray-500'>(Front & Back)</span>
                     </div>
-                    <div className='mb-2'>
+                    <div className='mb-2 flex lg:flex-col flex-row w-36 md:w-44'>
                       <Image src={drive3} alt='driving license front'></Image>
                       <Image src={drive4} alt='driving license back'></Image>
                     </div>
